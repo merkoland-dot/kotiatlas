@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sleeping Bag Finder v17 — value-for-money chart</title>
+<title>Sleeping Bag Finder v18 — adds Ferrino, Pajak, PHD, Mammut, Salewa, Y by Nordisk, Cumulus, Vaude</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..700,30..100&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -676,7 +676,7 @@ h1 em { font-style: italic; font-variation-settings: 'opsz' 100, 'SOFT' 80; colo
 <header class="f9-masthead">
   <div class="f9-eyebrow">A buyer's review · 102 bags · 30+ editorial sources</div>
   <h1>The Sleeping Bag <em>Atlas</em></h1>
-  <p class="subtitle">A <b>review-aggregated decision tool</b> for serious gear research. Each bag is headlined by pros and cons synthesized from editorial reviews — Treeline Review, OutdoorGearLab, Switchback, CleverHiker, iRunFar, Outside, Outdoor Life, Backpacker, Live for the Outdoors, Outdoor Magazin (DE), Bergzeit, TGO, REI Expert Advice, GearJunkie, Outdoors Magic, Advnture, and more. Source pills back the claims; shop ratings stay collapsed unless you ask for them.</p>
+  <p class="subtitle">A <b>review-aggregated decision tool</b> for serious gear research. Each bag is headlined by pros and cons synthesized from editorial reviews — Treeline Review, OutdoorGearLab, Switchback, CleverHiker, iRunFar, Outside, Outdoor Life, Backpacker, Live for the Outdoors, Outdoor Magazin (DE), Bergzeit, TGO, REI Expert Advice, GearJunkie, Outdoors Magic, Advnture, Ultralight Outdoor Gear UK, and more. Source pills back the claims; shop ratings stay collapsed unless you ask for them. <b>121 bags</b> — now including Ferrino (Italy), Pajak (Poland), PHD (UK custom), Cumulus (Poland), Y by Nordisk / former Yeti (Germany), Mammut, Salewa, Vaude.</p>
 </header>
 
 <div class="f9">
@@ -815,6 +815,7 @@ h1 em { font-style: italic; font-variation-settings: 'opsz' 100, 'SOFT' 80; colo
     SH:{name:'SectionHiker', tier:'ind'}, TS:{name:'Trailspace', tier:'ind'},
     BT:{name:'Better Trail', tier:'ind'},
     TR:{name:'Treeline Review', tier:'ind'}, WC:{name:'Wirecutter', tier:'ind'},
+    UOG:{name:'Ultralight Outdoor Gear', tier:'ind'}, AlpT:{name:'Alpinetrek', tier:'ind'},
     Out:{name:'Outside Online', tier:'mag'}, OL:{name:'Outdoor Life', tier:'mag'},
     T3:{name:'T3', tier:'mag'}, TGO:{name:'TGO', tier:'mag'},
     CF:{name:'Countryfile', tier:'mag'}, AdV:{name:'Advnture', tier:'mag'},
@@ -832,7 +833,8 @@ h1 em { font-style: italic; font-variation-settings: 'opsz' 100, 'SOFT' 80; colo
     Brg:{name:'Bergfreunde', tier:'shop'}, MK:{name:'MilitaryKit', tier:'shop'},
     NH:{name:'Naturehike', tier:'shop'}, Vng:{name:'Vango', tier:'shop'},
     Rob:{name:'Robens', tier:'shop'}, AbS:{name:'Absolute-snow', tier:'shop'},
-    GO:{name:'GO Outdoors', tier:'shop'}
+    GO:{name:'GO Outdoors', tier:'shop'}, Trk:{name:'Trekkinn', tier:'shop'},
+    Bfr:{name:'Bergfreunde reviews', tier:'shop'}
   };
   const PROFILES = {
     balanced:  {indie:0.35, mag:0.10, blog:0.05, shop:0.20, wpw:0.25, price:0.05},
@@ -942,7 +944,26 @@ h1 em { font-style: italic; font-variation-settings: 'opsz' 100, 'SOFT' 80; colo
     {n:'S2S Spark 0',t:'hooded',weight:1115,temp:-12,eur:580,fill:'850+ goose down',ins:'down',euStock:true,sr:{REI:{rating:4.6,count:65}},ec:[],pros:['Cold-weather UL with shop validation','4.6★/65 REI buyers'],cons:['Limited editorial coverage','Premium €580'],note:'Cold-weather UL with shop validation.'},
     {n:'FF Swallow UL 20',t:'hooded',weight:740,temp:-7,eur:605,fill:'950+ goose down',ins:'down',euStock:false,sr:{iRF:{note:'Warmest UL'}, SB:{}, CH:{}, SH:{}, BT:{}, TT:{}, GJ:{}, SuB:{}, TR:{note:'Best Overall Mens'}, BPK:{note:'Best Inclement Weather'}},ec:['iRF','SB','CH','SH','TR','BPK'],pros:['Strongest cross-source consensus: 10 sources, 6 picks','iRunFar Warmest UL','Treeline Best Overall + Backpacker Best Inclement Weather'],cons:['Premium €605','Limited EU availability'],note:'Strongest cross-source consensus: 10 sources, 6 editor picks.'},
     {n:'WM UltraLite 20',t:'hooded',weight:820,temp:-7,eur:605,fill:'850+ goose down',ins:'down',euStock:false,sr:{OGL:{note:'Best cold-weather'}, SB:{}, CH:{}, SH:{}, Amz:{rating:4.8,count:178}},ec:['CH'],pros:['OGL Best cold-weather pick','CleverHiker endorsement','4.8★/178 Amazon'],cons:['Premium €605','Made-in-USA limits EU stock'],note:"OGL's pick for colder 3-season."},
-    {n:'MH Phantom 0',t:'hooded',weight:1210,temp:-11,eur:715,fill:'850fp goose down',ins:'down',euStock:false,sr:{CH:{note:'Best winter'}},ec:['CH'],pros:['CleverHiker Best winter','850fp goose down','Mountaineering-grade'],cons:['€715 — most expensive','Heavy at 1.21kg'],note:'Premium winter option.'}
+    {n:'MH Phantom 0',t:'hooded',weight:1210,temp:-11,eur:715,fill:'850fp goose down',ins:'down',euStock:false,sr:{CH:{note:'Best winter'}},ec:['CH'],pros:['CleverHiker Best winter','850fp goose down','Mountaineering-grade'],cons:['€715 — most expensive','Heavy at 1.21kg'],note:'Premium winter option.'},
+    {n:'Ferrino Lightec 800 Duvet',t:'hooded',weight:760,temp:-2,eur:215,fill:'550fp duck down (RDS)',ins:'down',euStock:true,sr:{Trk:{rating:4.5,count:142}},ec:[],pros:['Italian brand, strong EU retail','RDS-certified down','3D foot-area shape','One Touch hood adjustment'],cons:['Only 550fp — bulkier than premium','Limited US/UK editorial coverage'],note:'Italian since 1870. Recycled GRS-certified shells.'},
+    {n:'Ferrino Lightec SM 1100',t:'hooded',weight:1100,temp:-3,eur:130,fill:'HTF Compact synthetic',ins:'synthetic',euStock:true,sr:{Trk:{rating:4.4,count:89}},ec:[],pros:['€130 budget mountaineering','Italian build quality','One Touch + 2-way zip','EN/ISO 23537 tested'],cons:['Heavy 1.1kg','Synthetic packs bulky','Limited editorial coverage'],note:'Italian-made shingle-tile synthetic.'},
+    {n:'Ferrino Lightec 1400 Duvet',t:'hooded',weight:1480,temp:-7,eur:330,fill:'550fp goose down (RDS)',ins:'down',euStock:true,sr:{},ec:[],pros:['Italian expedition-grade','RDS goose down','Full feature set'],cons:['Heavy 1.48kg for the temp rating','Only 550fp loft'],note:'Ferrino expedition winter option.'},
+    {n:'Pajak Radical 4Z',t:'hooded',weight:720,temp:-7,eur:520,fill:'900fp Polish goose down',ins:'down',euStock:true,sr:{UOG:{note:'TOP PICK: exceptional all-season'}, AlpT:{note:'Customer-tested'}, Brg:{rating:4.7,count:34}, Bfr:{note:'Reviewed'}},ec:['UOG'],pros:['UOG TOP PICK','900fp Polish white goose down (RDS)','Z-baffle eliminates cold spots','Made-in-Poland; Pacific-tested by K. Kielar'],cons:['€520 premium price','Limited US distribution'],note:'Polish premium. Z-construction angled baffles.'},
+    {n:'Pajak Radical 1Z',t:'hooded',weight:430,temp:0,eur:440,fill:'900fp Polish goose down',ins:'down',euStock:true,sr:{UOG:{note:'TOP PICK: spring/summer UL'}},ec:['UOG'],pros:['UOG TOP PICK summer/spring','430g — UL summer down','900fp RDS Polish white goose'],cons:['Summer/early autumn only','Premium €440'],note:'Lightweight Pajak for warm-weather UL.'},
+    {n:'Pajak Radical ULZ',t:'hooded',weight:362,temp:5,eur:380,fill:'900fp Polish goose down',ins:'down',euStock:true,sr:{UOG:{note:'TOP PICK ultralight'}},ec:['UOG'],pros:['Just 362g — ultralight','900fp expedition-grade down','Humidity Management System'],cons:['Comfort only +5°C','Pricey €380'],note:'Simplified UL design — Pajak\'s lightest.'},
+    {n:'PHD Minim 400',t:'hooded',weight:580,temp:-5,eur:340,fill:'900fp goose down',ins:'down',euStock:true,sr:{TGO:{}},ec:[],pros:['UK-made by PHD (Cheshire)','900fp custom down','Multi-year owner satisfaction'],cons:['Premium price','3+ week custom lead time','Sticky zip noted in reviews'],note:'PHD custom UK ultralight. Treated down optional.'},
+    {n:'PHD M.Degree 400 K',t:'hooded',weight:520,temp:-7,eur:520,fill:'1000fp goose down',ins:'down',euStock:true,sr:{TGO:{note:'Best warmth-to-weight'}},ec:['TGO'],pros:['TGO Best warmth-to-weight pick','UK-made fully custom-fitted','1000fp top-tier down','>95% European-sourced materials'],cons:['Eye-watering €520+ price','Hood lacks baffles','Narrow fit may restrict legs'],note:'PHD custom premium — TGO endorsed.'},
+    {n:'PHD Hispar 400',t:'hooded',weight:870,temp:-12,eur:540,fill:'900fp goose down',ins:'down',euStock:true,sr:{},ec:[],pros:['UK-made winter expedition','900fp Polish down','Custom sizing'],cons:['Premium price','UK-only retail (cottage)'],note:'PHD winter line. Used on polar expeditions.'},
+    {n:'Y by Nordisk Passion One',t:'hooded',weight:265,temp:5,eur:550,fill:'900fp Crystal Down (Polish)',ins:'down',euStock:true,sr:{OM:{note:'red dot design award'}, Brg:{rating:4.7,count:67}},ec:['OM'],pros:['265g — among lightest sleeping bags ever made','Red dot design award winner','900fp Crystal Down (traceable Polish geese)','Hand-made in Germany'],cons:['Premium €550','Only +5°C comfort — summer/MdS-style use','Niche product, limited stock'],note:'Formerly Yeti Passion One. MdS desert ultra-marathoners\' favorite.'},
+    {n:'Y by Nordisk Passion Five',t:'hooded',weight:730,temp:-2,eur:620,fill:'900fp Crystal Down (Polish)',ins:'down',euStock:true,sr:{Brg:{rating:4.7,count:34}},ec:[],pros:['Made-in-Germany premium','900fp Crystal Down','Solid cold protection at <800g'],cons:['Premium €620','Limited US distribution'],note:'Warmest Y by Nordisk Passion. -2°C comfort at 730g.'},
+    {n:'Cumulus Quilt 350',t:'quilt',weight:485,temp:0,eur:295,fill:'850fp Polish goose down',ins:'down',euStock:true,sr:{},ec:[],pros:['Polish premium quilt brand','850fp Polish goose down (ethical)','Pertex Quantum + Toray fabrics','Open-bottom design'],cons:['No hood — needs cap','EU-direct only (cottage scale)'],note:'Cumulus Polish-made quilt. Mattress-strap system.'},
+    {n:'Cumulus Lite Line 400',t:'hooded',weight:780,temp:-5,eur:440,fill:'850fp Polish goose down',ins:'down',euStock:true,sr:{},ec:[],pros:['Polish premium','850fp Polish goose down','3-season mummy at <800g'],cons:['EU-direct only','Limited editorial coverage'],note:'Cumulus mummy classic. Strong loyalty in EU UL community.'},
+    {n:'Mammut Comfort Down -5C',t:'hooded',weight:1390,temp:-5,eur:340,fill:'700fp goose down (RDS)',ins:'down',euStock:true,sr:{LFTO:{note:'Great all-rounder'}, Brg:{rating:4.6,count:23}},ec:['LFTO'],pros:['LFTO 2025 review: comfortable, versatile','Practical centre-zip design','Strong Mammut sustainability creds','RDS-certified down'],cons:['Heavy 1.39kg','Pricey for 700fp loft'],note:'Swiss Mammut. Centre-zip for easy entry.'},
+    {n:'Mammut Perform Down -7C',t:'hooded',weight:1140,temp:-7,eur:380,fill:'800fp goose down (RDS)',ins:'down',euStock:true,sr:{TGO:{note:'Different yet comfortable approach'}},ec:[],pros:['TGO reviewed favorably','800fp RDS down','3-season Alpine focus'],cons:['Centre-zip layout takes adjustment','Premium €380'],note:'Mammut Performance line. Alpine-focused cut.'},
+    {n:'Mammut Relax Fiber Bag -2C',t:'hooded',weight:1700,temp:-2,eur:155,fill:'recycled synthetic',ins:'synthetic',euStock:true,sr:{AdV:{note:'Whimsical & versatile'}},ec:[],pros:['Advnture: comfortable, versatile','Mammut quality at synthetic price','Great for casual camping'],cons:['Heavy 1.7kg','Synthetic only — bulky packed','Not for serious backpacking'],note:'Mammut\'s casual-camping synthetic.'},
+    {n:'Salewa Diadem Warm',t:'hooded',weight:1320,temp:-5,eur:295,fill:'700fp goose down (RDS)',ins:'down',euStock:true,sr:{},ec:[],pros:['Italian Alpine specialist','RDS goose down','3-season Alpine fit'],cons:['Heavy 1.32kg','Limited US/UK editorial coverage'],note:'Salewa Italian Alpine brand.'},
+    {n:'Vaude Sioux 800 II',t:'hooded',weight:1500,temp:6,eur:130,fill:'recycled synthetic',ins:'synthetic',euStock:true,sr:{},ec:[],pros:['German green-credentials brand','Recycled materials','Wide retail across EU'],cons:['Summer-rated only','Heavy 1.5kg','Limited cold-weather use'],note:'Vaude German eco-focused. PrimaLoft synthetic.'},
+    {n:'Cumulus Panyam 450',t:'hooded',weight:840,temp:-5,eur:415,fill:'850fp Polish goose down',ins:'down',euStock:true,sr:{},ec:[],pros:['Polish premium 3-season','850fp Polish goose down','Strong UL community following'],cons:['EU-direct only','Limited US distribution'],note:'Cumulus mummy. Cottage premium.'}
   ];
 
   const state = {
